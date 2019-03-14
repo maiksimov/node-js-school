@@ -15,10 +15,14 @@ router.put('/users/:id', controller.user.updateUser);
 router.delete('/users/:id', controller.user.deleteUser);
 
 
+router.get('/users/:id/books', controller.book.getUserBooks);
+// I think endpoints names must be more shortly then GET: /users/1/books/1
+// If we know book id, we can take all data from this book
+// If I wrong, I will be rewrite this names as in the task
 
-router.get('/users/:id/books', controller.book.getBooks);
-// router.post('/users/:id/books', controller.book.createBook);
-// router.put('/users/:id/books/:book_id', controller.book.updateBook);
-// router.delete('/users/:id/books/:book_id', controller.book.deleteBook);
+router.get('/books', controller.book.getAllBooks);
+router.get('/books/:id', controller.book.getBook);
+router.put('/books/:id', controller.book.updateBook);
+router.delete('/books/:id', controller.book.deleteBook);
 
 export { router };

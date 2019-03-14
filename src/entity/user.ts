@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinTable } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinTable, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { Length, IsEmail } from 'class-validator';
 import { Book } from './book';
 
@@ -23,4 +23,10 @@ export class User {
     @OneToMany(type => Book, book => book.user)
     @JoinTable()
     books: Promise<Book[]>;
+
+    @CreateDateColumn()
+    created_at: string;
+
+    @UpdateDateColumn()
+    updated_at: string;
 }
