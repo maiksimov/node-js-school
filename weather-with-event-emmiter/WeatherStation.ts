@@ -22,7 +22,7 @@ export class WeatherStation {
     }
 
     public run(i) {
-         this.event_emitter.emit(this.EVENT_NAME, { temperature: i, humidity: 80, pressure: 80 });
+         this.event_emitter.emit(this.EVENT_NAME, { temperature: i, humidity: (i - 10), pressure: (i - 40) });
     }
 }
 
