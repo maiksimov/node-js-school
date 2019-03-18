@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinTable, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { Length, IsEmail } from 'class-validator';
+import { Book } from './book';
 
-@Entity()
+@Entity('users')
 export class User {
     @PrimaryGeneratedColumn()
     id: number;
@@ -18,4 +19,14 @@ export class User {
     @Length(10, 100)
     @IsEmail()
     email: string;
+
+    @OneToMany(type => Book, book => book.user)
+    @JoinTable()
+    books: Promise<Book[]>;
+
+    @CreateDateColumn()
+    created_at: string;
+
+    @UpdateDateColumn()
+    updated_at: string;
 }
