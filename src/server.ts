@@ -8,11 +8,11 @@ import * as dotenv from 'dotenv';
 import { createConnection } from 'typeorm';
 import 'reflect-metadata';
 import * as PostgressConnectionStringParser from 'pg-connection-string';
-
+import * as serve from 'koa-static';
+const swagger = require('koa2-swagger-ui');
 import { logger } from './logging';
 import { config } from './config';
 import { router } from './routes';
-import * as swagger from 'swagger-koa';
 
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config({ path: '.env' });
@@ -61,19 +61,15 @@ createConnection({
     // this routes are protected by the JWT middleware, also include middleware to respond with "Method Not Allowed - 405".
     app.use(router.routes()).use(router.allowedMethods());
 
-    app.use(swagger.init({
-        apiVersion: '1.0',
-        swaggerVersion: '1.0',
-        swaggerURL: '/swagger',
-        swaggerJSON: '/api-docs.json',
-        swaggerUI: './public/swagger/',
-        basePath: 'http://localhost:3000',
-        info: {
-            title: 'swagger-koa sample app',
-            description: 'Swagger + Koa = {swagger-koa}'
-        },
-        apis: [ './public/swagger.yml']
-    }));
+    app.use(serve('public'));
+    app.use(
+        swagger({
+            routePrefix: '/swagger',
+            swaggerOptions: {
+                url: '/swagger/swagger.yml'
+            }
+        })
+    );
 
     app.listen(config.port);
 
