@@ -20,8 +20,12 @@
             "keyword": "Given ",
             "line": 4,
             "name": "I am on service endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/service_steps.ts:5"
+            },
             "result": {
-              "status": "undefined"
+              "status": "passed",
+              "duration": 335000000
             }
           },
           {
@@ -29,8 +33,12 @@
             "keyword": "When ",
             "line": 5,
             "name": "I create a new service with default status",
+            "match": {
+              "location": "features/step-definitions/steps/service_steps.ts:13"
+            },
             "result": {
-              "status": "undefined"
+              "status": "pending",
+              "duration": 1000000
             }
           },
           {
@@ -38,8 +46,11 @@
             "keyword": "Then ",
             "line": 6,
             "name": "All the details of created service should I see",
+            "match": {
+              "location": "features/step-definitions/steps/service_steps.ts:18"
+            },
             "result": {
-              "status": "undefined"
+              "status": "skipped"
             }
           }
         ]
