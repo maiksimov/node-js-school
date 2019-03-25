@@ -1,0 +1,49 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "As a user, I want to manage services",
+    "line": 1,
+    "id": "as-a-user,-i-want-to-manage-services",
+    "tags": [],
+    "uri": "features/create_service.feature",
+    "elements": [
+      {
+        "id": "as-a-user,-i-want-to-manage-services;create-service",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Create Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am on service endpoint",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I create a new service with default status",
+            "result": {
+              "status": "undefined"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "All the details of created service should I see",
+            "result": {
+              "status": "undefined"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

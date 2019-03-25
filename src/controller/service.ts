@@ -1,6 +1,5 @@
 import { BaseContext } from 'koa';
 import { getManager } from 'typeorm';
-import { Pipeline } from '../entity/pipeline';
 import { Service } from '../entity/service';
 import { validate, ValidationError } from 'class-validator';
 import { constants } from '../constants';

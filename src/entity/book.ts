@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, UpdateDateColumn, JoinTable } from 'typeorm';
-import { Length, IsEmail } from 'class-validator';
+import { Length } from 'class-validator';
 import { User } from './user';
 
 @Entity('books')
@@ -7,11 +7,12 @@ export class Book {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    @Length(1, 256)
+    @Column({
+        length: 100
+    })
     title: string;
 
-    @Column('text')
+    @Column('text', { nullable: true })
     description: string;
 
     @Column('int')
