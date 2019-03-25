@@ -1,18 +1,19 @@
 import { BaseContext } from 'koa';
 import { getManager } from 'typeorm';
 import { Pipeline } from '../entity/pipeline';
+import { Service } from '../entity/service';
 import { validate, ValidationError } from 'class-validator';
 import { constants } from '../constants';
-import { ChainBuilder } from '../builders/chainbuilder';
+import { ServiceContext } from '../../service-with-state-strategy/ServiceContext';
 
 export default class ServiceController {
 
     public static async create(ctx: BaseContext) {
         const manager = getManager();
-        const newPipeline: Pipeline = new Pipeline();
-        newPipeline.steps = ctx.request.body.flowSteps;
+        const newService: Service = new Service();
+        newService.status = 'new';
 
-        const errors: ValidationError[] = await validate(newPipeline);
+        const errors: ValidationError[] = await validate(newService);
 
         if (errors.length > 0) {
             ctx.status = constants.BAD_REQUEST;
@@ -20,26 +21,25 @@ export default class ServiceController {
             return;
         }
 
-        const pipeline = await manager.save(newPipeline);
+        const service = await manager.save(newService);
         ctx.status = constants.CREATED;
-        ctx.body = pipeline;
+        ctx.body = service;
     }
 
-    public static async execute(ctx: BaseContext) {
+    public static async status(ctx: BaseContext) {
         const manager = getManager();
-        const pipeline = await manager.findOne(Pipeline, { where: { id: +ctx.params.id || 0 }});
+        const service = await manager.findOne(Service, { where: { id: +ctx.params.id || 0 }});
 
-        if ( !pipeline ) {
+        if ( !service ) {
             ctx.status = constants.BAD_REQUEST;
-            ctx.body = 'The pipeline you are trying to find doesn\'t exist in the db';
+            ctx.body = 'The service you are trying to find doesn\'t exist in the db';
             return;
         }
 
-        const builder = new ChainBuilder(ctx.req, ctx.request.headers.filename, pipeline);
-        const file = await builder.build();
-        ctx.set( 'Content-Type', 'application/force-download' );
-        ctx.set( 'Content-disposition', 'attachment; filename=' + file.filename );
+        const serviceContext = new ServiceContext(service, ctx.request.body.state);
+        service.status = serviceContext.run();
+        await manager.save(service);
         ctx.status = constants.OK;
-        ctx.body = file.file;
+        ctx.body = service.status;
     }
 }

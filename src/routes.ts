@@ -22,6 +22,6 @@ router.put('/books/:id', controller.book.updateBook);
 router.delete('/books/:id', controller.book.deleteBook);
 
 router.post('/service', controller.service.create);
-router.post('/service/:id/execute', controller.service.execute);
+router.put('/service/:id', controller.service.status);
 
 export { router };
