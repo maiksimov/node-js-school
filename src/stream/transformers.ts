@@ -1,20 +1,20 @@
 import { Transform } from 'stream';
 
 const UpperCase = new Transform({
-    transform(chunk, encoding, callback) {
-        callback(null, chunk.toString().toUpperCase());
+    transform(chunk) {
+        return chunk.toString().toUpperCase();
     }
 });
 
 const LowerCase = new Transform({
-    transform(chunk, encoding, callback) {
-        callback(null, chunk.toString().toLowerCase());
+    transform(chunk) {
+        return chunk.toString().toLowerCase();
     }
 });
 
 const RemoveSpaces = new Transform({
     transform(chunk, encoding, callback) {
-        callback(null, chunk.toString().replace(/\s+/g, ''));
+        return chunk.toString().replace(/\s+/g, '');
     }
 });
 

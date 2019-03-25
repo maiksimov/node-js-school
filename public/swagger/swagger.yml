@@ -1,0 +1,77 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Yalantis-nodejs-school
+  license:
+    name: MIT
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /service:
+    post:
+      summary: Create new pipeline
+      operationId: create
+      tags:
+        - service
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Pipeline'
+  /service/{id}/execute:
+    post:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of Pipeline
+
+        - in: header
+          name: X-Filename
+          description: Name of binary file will send
+          schema:
+            type: string
+          required: true
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+        description: Optional description in *Markdown*
+        required: true
+
+      summary: Execute pipeline on send file
+      operationId: execute
+      tags:
+        - service
+      responses:
+        "200":
+          description: OK
+definitions:
+  Pipeline:
+    required:
+      - id
+      - steps
+    properties:
+      id:
+        type: integer
+        format: int64
+      steps:
+        type: string
+        format: json
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+type: string
