@@ -7,38 +7,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var typeorm_1 = require("typeorm");
-var class_validator_1 = require("class-validator");
-var book_1 = require("./book");
-var User = (function () {
-    function User() {
+var user_1 = require("./user");
+var Book = (function () {
+    function Book() {
     }
-    return User;
+    return Book;
 }());
 __decorate([
     typeorm_1.PrimaryGeneratedColumn()
-], User.prototype, "id");
-__decorate([
-    typeorm_1.Column('text', { nullable: true }),
-    class_validator_1.Length(10, 80)
-], User.prototype, "name");
+], Book.prototype, "id");
 __decorate([
     typeorm_1.Column({
         length: 100
-    }),
-    class_validator_1.Length(10, 100),
-    class_validator_1.IsEmail()
-], User.prototype, "email");
+    })
+], Book.prototype, "title");
 __decorate([
-    typeorm_1.OneToMany(function (type) { return book_1.Book; }, function (book) { return book.user; }),
+    typeorm_1.Column('text', { nullable: true })
+], Book.prototype, "description");
+__decorate([
+    typeorm_1.Column('int')
+], Book.prototype, "userId");
+__decorate([
+    typeorm_1.ManyToOne(function (type) { return user_1.User; }, function (user) { return user.books; }),
     typeorm_1.JoinTable()
-], User.prototype, "books");
+], Book.prototype, "user");
 __decorate([
     typeorm_1.CreateDateColumn()
-], User.prototype, "created_at");
+], Book.prototype, "created_at");
 __decorate([
     typeorm_1.UpdateDateColumn()
-], User.prototype, "updated_at");
-User = __decorate([
-    typeorm_1.Entity('users')
-], User);
-exports.User = User;
+], Book.prototype, "updated_at");
+Book = __decorate([
+    typeorm_1.Entity('books')
+], Book);
+exports.Book = Book;

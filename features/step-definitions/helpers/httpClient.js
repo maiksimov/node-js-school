@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var request = require("request-promise");
 var API_BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 var originalRequest = require('request');
@@ -77,7 +77,7 @@ var HttpClient = (function () {
             });
         });
     };
-    HttpClient.prototype.delete = function (url) {
+    HttpClient.prototype["delete"] = function (url) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, this.execRequest({
@@ -103,4 +103,4 @@ var HttpClient = (function () {
     return HttpClient;
 }());
 var httpClient = new HttpClient(request);
-exports.default = httpClient;
+exports["default"] = httpClient;

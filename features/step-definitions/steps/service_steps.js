@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var chai_1 = require("chai");
 var _a = require('cucumber'), Given = _a.Given, When = _a.When, Then = _a.Then;
 var httpClient_1 = require("../helpers/httpClient");
@@ -43,7 +43,7 @@ Given('I am on service endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, httpClient_1.default.post('/service')];
+                case 0: return [4 /*yield*/, httpClient_1["default"].post('/service', {})];
                 case 1:
                     response = _a.sent();
                     this.newService = response.body;
