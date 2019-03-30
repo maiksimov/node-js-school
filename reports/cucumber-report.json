@@ -1,6 +1,64 @@
 [
   {
     "keyword": "Feature",
+    "name": "As a user, I want to change state of service flow",
+    "line": 1,
+    "id": "as-a-user,-i-want-to-change-state-of-service-flow",
+    "tags": [],
+    "uri": "features/change_state_of_service.feature",
+    "elements": [
+      {
+        "id": "as-a-user,-i-want-to-change-state-of-service-flow;update-service",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am on service endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/service_steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I change service state by sending new status to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/service_steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "New state status of updated service should I see",
+            "match": {
+              "location": "features/step-definitions/steps/service_steps.ts:19"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Feature",
     "name": "As a user, I want to manage services",
     "line": 1,
     "id": "as-a-user,-i-want-to-manage-services",
@@ -25,7 +83,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 335000000
+              "duration": 11000000
             }
           },
           {
@@ -33,12 +91,8 @@
             "keyword": "When ",
             "line": 5,
             "name": "I create a new service with default status",
-            "match": {
-              "location": "features/step-definitions/steps/service_steps.ts:13"
-            },
             "result": {
-              "status": "pending",
-              "duration": 1000000
+              "status": "undefined"
             }
           },
           {
@@ -46,11 +100,8 @@
             "keyword": "Then ",
             "line": 6,
             "name": "All the details of created service should I see",
-            "match": {
-              "location": "features/step-definitions/steps/service_steps.ts:18"
-            },
             "result": {
-              "status": "skipped"
+              "status": "undefined"
             }
           }
         ]

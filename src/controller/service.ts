@@ -25,7 +25,7 @@ export default class ServiceController {
         ctx.body = service;
     }
 
-    public static async status(ctx: BaseContext) {
+    public static async changeStatus(ctx: BaseContext) {
         const manager = getManager();
         const service = await manager.findOne(Service, { where: { id: +ctx.params.id || 0 }});
 
