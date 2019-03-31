@@ -35,10 +35,11 @@ export default class ServiceController {
             return;
         }
 
-        const serviceContext = new ServiceContext(service, ctx.request.body.state);
+        const serviceContext = new ServiceContext(service.status, ctx.request.body.state);
         service.status = serviceContext.run();
         await manager.save(service);
-        ctx.status = constants.OK;
+
         ctx.body = service.status;
+        ctx.status = constants.OK;
     }
 }

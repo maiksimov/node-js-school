@@ -1,11 +1,10 @@
 import { AbstractState } from './AbstractState';
 import { RefundState } from './RefundState';
+import { STATUS_REFUND } from '../status-constants';
 
 export class DeployState extends AbstractState {
     refund() {
-        this._context.setStatus(this._context.STATUS_REFUND);
-        this._context.setState(new RefundState(this._context));
+        this._context.Status = STATUS_REFUND;
+        this._context.State = new RefundState(this._context);
     }
-    close() {}
-    next() {}
 }

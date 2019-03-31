@@ -1,14 +1,22 @@
-import { State } from './interfaces/State';
-import { ServiceContext } from '../ServiceContext';
+import { IState } from './interfaces/IState';
+import { IContext } from '../IContext';
 
-export abstract class AbstractState implements State {
+export abstract class AbstractState implements IState {
     protected _context;
 
-    constructor(context: ServiceContext) {
+    constructor(context: IContext) {
         this._context = context;
     }
 
-    abstract next(): void;
-    abstract refund(): void;
-    abstract close(): void;
+    next() {
+        throw new Error('Step Next not allow for this state');
+    }
+
+    refund() {
+        throw new Error('Step Refund not allow for this state');
+    }
+
+    close() {
+        throw new Error('Step Close not allow for this state');
+    }
 }

@@ -1,8 +1,8 @@
 import { IStrategy } from './interfaces/IStrategy';
 import { IState } from '../states/interfaces/IState';
 
-export class NextStrategy implements IStrategy {
+export class CloseStrategy implements IStrategy {
     execute(state: IState) {
-        state.next();
+        state.close();
     }
 }
