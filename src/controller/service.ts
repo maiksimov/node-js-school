@@ -3,8 +3,9 @@ import { getManager } from 'typeorm';
 import { Service } from '../entity/service';
 import { validate, ValidationError } from 'class-validator';
 import { constants } from '../constants';
-import { ServiceContext } from '../../service-with-state-strategy/ServiceContext';
+
 import { STATUS_NEW } from '../../service-with-state-strategy/status-constants';
+import { connect, Payload } from 'ts-nats';
 
 export default class ServiceController {
 
@@ -36,11 +37,12 @@ export default class ServiceController {
             return;
         }
 
-        const serviceContext = new ServiceContext(service.status, ctx.request.body.state);
-        service.status = serviceContext.run();
-        await manager.save(service);
+        const nc = await connect({
+            servers: ['nats://localhost:4222'],
+            payload: Payload.JSON
+        });
 
-        ctx.body = service.status;
+        nc.publish('service.update', { id: service.id, action: ctx.request.body.state});
         ctx.status = constants.OK;
     }
 }

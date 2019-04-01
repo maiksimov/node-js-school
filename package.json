@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "watch-server": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node src/server.ts",
+    "deploy-service": "nodemon --watch 'deploy-service/**/*' -e ts,tsx --exec ts-node deploy-service/service.ts",
     "build-ts": "tsc",
     "tslint": "tslint --fix -c tslint.json -p tsconfig.json",
     "serve": "node ./dist/src/server.js",
@@ -66,6 +67,7 @@
     "pg": "^7.4.3",
     "pg-connection-string": "^2.0.0",
     "reflect-metadata": "^0.1.13",
+    "ts-nats": "^1.2.2",
     "typeorm": "^0.2.6",
     "winston": "^3.0.0"
   }
