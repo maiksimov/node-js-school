@@ -1,0 +1,748 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "As a user, I want to manage services",
+    "line": 1,
+    "id": "as-a-user,-i-want-to-manage-services",
+    "tags": [],
+    "uri": "features/manage_service.feature",
+    "elements": [
+      {
+        "id": "as-a-user,-i-want-to-manage-services;create-service",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Create Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 4,
+            "name": "I am on service endpoint I create a new service with default status",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 60000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "Status of created service should I see",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:12"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'new'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'next' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'processing'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'new'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'close' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'exception'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'new'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'refund' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'exception'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'processing'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'next' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'pending'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'processing'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'close' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'close'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'processing'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'refund' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'exception'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'pending'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'next' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'deploy'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'pending'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'close' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'exception'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'pending'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'refund' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'refund'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'deploy'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'next' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'exception'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'deploy'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'close' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'exception'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'deploy'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'refund' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'refund'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 26,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'refund'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'next' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'exception'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'refund'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'close' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'close'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed"
+            }
+          }
+        ]
+      },
+      {
+        "id": "as-a-user,-i-want-to-manage-services;update-service",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Update Service",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "I have a service with state 'refund'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:16"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I change service state by sending new 'refund' to endpoint",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:20"
+            },
+            "result": {
+              "status": "passed"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "New state status of updated service should be 'exception'",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

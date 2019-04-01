@@ -1,0 +1,73 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Yalantis-nodejs-school
+  license:
+    name: MIT
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /service:
+    post:
+      summary: Create new service
+      operationId: create
+      tags:
+        - service
+      responses:
+        "201":
+          description: 'new service'
+        default:
+          description: 'new'
+          schema:
+            $ref: '#/definitions/Service'
+  /service/{id}:
+    put:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: ID of Service
+
+        - in: body
+          name: state
+          required: true
+          schema:
+            $ref: "#/definitions/Action"
+          description: The name of the action
+
+      summary: Change Service state by send action name like {"state"="next"}
+      operationId: changeStatus
+      tags:
+        - service
+      responses:
+        "200":
+          description: OK
+definitions:
+  Service:
+    required:
+      - id
+      - status
+    properties:
+      id:
+        type: integer
+        format: int64
+      status:
+        type: string
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+  Action:
+    required:
+      - state
+    properties:
+      state:
+        type: string
