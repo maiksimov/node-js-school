@@ -4,13 +4,14 @@ import { Service } from '../entity/service';
 import { validate, ValidationError } from 'class-validator';
 import { constants } from '../constants';
 import { ServiceContext } from '../../service-with-state-strategy/ServiceContext';
+import { STATUS_NEW } from '../../service-with-state-strategy/status-constants';
 
 export default class ServiceController {
 
     public static async create(ctx: BaseContext) {
         const manager = getManager();
         const newService: Service = new Service();
-        newService.status = 'new';
+        newService.status = STATUS_NEW;
 
         const errors: ValidationError[] = await validate(newService);
 
