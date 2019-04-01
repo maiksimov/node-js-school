@@ -1,69 +1,11 @@
 [
   {
     "keyword": "Feature",
-    "name": "As a user, I want to change state of service flow",
-    "line": 1,
-    "id": "as-a-user,-i-want-to-change-state-of-service-flow",
-    "tags": [],
-    "uri": "features/change_state_of_service.feature",
-    "elements": [
-      {
-        "id": "as-a-user,-i-want-to-change-state-of-service-flow;update-service",
-        "keyword": "Scenario",
-        "line": 3,
-        "name": "Update Service",
-        "tags": [],
-        "type": "scenario",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 4,
-            "name": "I am on service endpoint",
-            "match": {
-              "location": "features/step-definitions/steps/service_steps.ts:5"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 40000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 5,
-            "name": "I change service state by sending new status to endpoint",
-            "match": {
-              "location": "features/step-definitions/steps/service_steps.ts:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 17000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 6,
-            "name": "New state status of updated service should I see",
-            "match": {
-              "location": "features/step-definitions/steps/service_steps.ts:19"
-            },
-            "result": {
-              "status": "passed"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "keyword": "Feature",
     "name": "As a user, I want to manage services",
     "line": 1,
     "id": "as-a-user,-i-want-to-manage-services",
     "tags": [],
-    "uri": "features/create_service.feature",
+    "uri": "features/manage_service.feature",
     "elements": [
       {
         "id": "as-a-user,-i-want-to-manage-services;create-service",
@@ -75,33 +17,28 @@
         "steps": [
           {
             "arguments": [],
-            "keyword": "Given ",
+            "keyword": "When ",
             "line": 4,
-            "name": "I am on service endpoint",
+            "name": "I am on service endpoint I create a new service with default status",
             "match": {
-              "location": "features/step-definitions/steps/service_steps.ts:5"
+              "location": "features/step-definitions/steps/mange_service_steps.ts:6"
             },
             "result": {
-              "status": "passed",
-              "duration": 11000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 5,
-            "name": "I create a new service with default status",
-            "result": {
-              "status": "undefined"
+              "status": "failed",
+              "duration": 29000000,
+              "error_message": "ConnectionNotFoundError: Connection \"default\" was not found.\n    at new ConnectionNotFoundError (/home/michael/Projects/node-js-school/src/error/ConnectionNotFoundError.ts:8:9)\n    at ConnectionManager.get (/home/michael/Projects/node-js-school/src/connection/ConnectionManager.ts:40:19)\n    at Object.getConnection (/home/michael/Projects/node-js-school/src/index.ts:240:35)\n    at World.<anonymous> (/home/michael/Projects/node-js-school/features/step-definitions/steps/mange_service_steps.ts:7:11)"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 6,
-            "name": "All the details of created service should I see",
+            "line": 5,
+            "name": "Status of created service should I see",
+            "match": {
+              "location": "features/step-definitions/steps/mange_service_steps.ts:13"
+            },
             "result": {
-              "status": "undefined"
+              "status": "skipped"
             }
           }
         ]

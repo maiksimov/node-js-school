@@ -45,11 +45,11 @@
     "request-promise": "^4.2.4",
     "shelljs": "^0.8.2",
     "sinon": "^7.3.0",
-    "ts-jest": "^24.0.0",
+    "ts-jest": "^24.0.1",
     "ts-node": "^7.0.1",
     "ts-sinon": "^1.0.17",
     "tslint": "^5.10.0",
-    "typescript": "^3.0.1"
+    "typescript": "^3.4.1"
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",

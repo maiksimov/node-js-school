@@ -22,7 +22,7 @@ export default class ServiceController {
 
         const service = await manager.save(newService);
         ctx.status = constants.CREATED;
-        ctx.body = service;
+        ctx.body = service.status;
     }
 
     public static async changeStatus(ctx: BaseContext) {
