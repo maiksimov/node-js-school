@@ -1,8 +1,8 @@
-import { Strategy } from './interfaces/Strategy';
-import { State } from '../states/interfaces/State';
+import { IStrategy } from './interfaces/IStrategy';
+import { IState } from '../states/interfaces/IState';
 
-export class RefundStrategy implements Strategy {
-    execute(state: State) {
+export class RefundStrategy implements IStrategy {
+    execute(state: IState) {
         state.refund();
     }
 }

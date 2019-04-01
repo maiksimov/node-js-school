@@ -15,3 +15,8 @@ services :
       - db
     ports:
       - 8080:8080
+  nats:
+    image: 'nats:latest'
+    ports:
+      - "4222:4222"
+    hostname: nats-server

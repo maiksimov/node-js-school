@@ -3,14 +3,16 @@ import { getManager } from 'typeorm';
 import { Service } from '../entity/service';
 import { validate, ValidationError } from 'class-validator';
 import { constants } from '../constants';
-import { ServiceContext } from '../../service-with-state-strategy/ServiceContext';
+
+import { STATUS_NEW } from '../../service-with-state-strategy/status-constants';
+import { connect, Payload } from 'ts-nats';
 
 export default class ServiceController {
 
     public static async create(ctx: BaseContext) {
         const manager = getManager();
         const newService: Service = new Service();
-        newService.status = 'new';
+        newService.status = STATUS_NEW;
 
         const errors: ValidationError[] = await validate(newService);
 
@@ -22,10 +24,10 @@ export default class ServiceController {
 
         const service = await manager.save(newService);
         ctx.status = constants.CREATED;
-        ctx.body = service;
+        ctx.body = service.status;
     }
 
-    public static async status(ctx: BaseContext) {
+    public static async changeStatus(ctx: BaseContext) {
         const manager = getManager();
         const service = await manager.findOne(Service, { where: { id: +ctx.params.id || 0 }});
 
@@ -35,10 +37,12 @@ export default class ServiceController {
             return;
         }
 
-        const serviceContext = new ServiceContext(service, ctx.request.body.state);
-        service.status = serviceContext.run();
-        await manager.save(service);
+        const nc = await connect({
+            servers: ['nats://localhost:4222'],
+            payload: Payload.JSON
+        });
+
+        nc.publish('service.update', { id: service.id, action: ctx.request.body.state});
         ctx.status = constants.OK;
-        ctx.body = service.status;
     }
 }

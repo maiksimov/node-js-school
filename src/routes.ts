@@ -8,6 +8,6 @@ router.get('/', controller.general.helloWorld);
 router.get('/jwt', controller.general.getJwtPayload);
 
 router.post('/service', controller.service.create);
-router.put('/service/:id', controller.service.status);
+router.put('/service/:id', controller.service.changeStatus);
 
 export { router };
